@@ -1,0 +1,385 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --main-color: #6c5ce7;
+}
+
+body {
+  font-family: cursive;
+  overflow-x: hidden;
+}
+
+/********** General **********/
+.container {
+  width: 95%;
+  margin: auto;
+}
+
+.pd-y {
+  padding: 100px 0;
+}
+
+/********* Header Section *********/
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  transition: all 0.5s;
+}
+
+header .logo {
+  font-size: 21px;
+  color: #fff;
+}
+
+header .logo i {
+  margin-right: 8px;
+}
+
+header ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+header ul li a {
+  margin-right: 5px;
+  color: #fff;
+  font-size: 20px;
+  transition: 0.5s;
+}
+
+header ul li a:hover {
+  color: linear-gradient(purple, var(--main-color));
+  font-weight: bold;
+}
+
+/*Create bars*/
+header .bars i {
+  font-size: 25px;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-wrap: wrap;
+    height: 59px;
+    overflow: hidden;
+    transition: 0.5s;
+  }
+
+  header.active {
+    height: 372px;
+  }
+
+  header ul {
+    flex-direction: column;
+    background: #fff;
+    width: 100%;
+    margin-top: 17px;
+    padding: 15px 5px;
+    box-shadow: 0 0.3rem 0.5rem rgb(0 0 0 / 30%);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  header ul li a {
+    display: block;
+    padding: 0 15px;
+    color: #000;
+    transition: 0.5s;
+  }
+
+  header ul li:hover a {
+    padding-left: 25px;
+    color: var(--main-color);
+  }
+
+  header .bars i {
+    display: block;
+    transition: 0.5s;
+  }
+
+  header.active .fa-times {
+    transform: rotate(180deg);
+  }
+}
+
+/********* Home Section *********/
+.home {
+  height: 100vh;
+  background: linear-gradient(purple, var(--main-color));
+  position: relative;
+  overflow: hidden;
+}
+
+.home-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  width: 70%;
+}
+
+.home-content h2 {
+  font-size: 40px;
+  text-shadow: 0 0.3rem 0.5rem rgb(0 0 0 / 30%);
+}
+
+.home-content h3 {
+  margin: 15px 0;
+  color: #eee;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.home-content button {
+  padding: 10px 30px;
+  background: #fff;
+  color: #444;
+  border: none;
+  border-radius: 5px;
+  margin-top: 1rem;
+  font-size: 23px;
+  font-weight: 400;
+  box-shadow: 0 0.3rem 0.5rem rgb(0 0 0 / 30%);
+  outline: none;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.home-content button:hover {
+  letter-spacing: 1px;
+}
+
+/* Add Waves */
+.home .wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%; /**/
+  height: 8rem; /**/
+  background: url(../images/wave.png);
+  background-size: 100rem 10rem; /**/
+  background-repeat: repeat-x;
+  animation: waves 8s linear infinite;
+}
+
+.home .wave2 {
+  animation-direction: reverse;
+  opacity: 0.2;
+}
+
+.home .wave3 {
+  animation-duration: 4s;
+  opacity: 0.5;
+}
+
+@keyframes waves {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 100rem;
+  }
+}
+
+/* Add Icons */
+.home .fa-cog {
+  position: absolute;
+  font-size: 15rem;
+  opacity: 0.15;
+  color: #fff;
+  animation: spin 5s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.home i.left {
+  top: 15%;
+  left: -6%;
+}
+
+.home i.right {
+  top: 50%;
+  right: -6%;
+  animation-direction: reverse;
+}
+
+@media (max-width: 768px) {
+  .home-content h2 {
+    font-size: 38px;
+  }
+  .home-content h3 {
+    font-size: 20px;
+  }
+
+  .home i.left {
+    left: -20%;
+  }
+
+  .home i.right {
+    right: -20%;
+  }
+}
+
+/********* FAQ Section *********/
+.faq {
+  min-height: 90vh;
+}
+
+.faq .heading {
+  width: fit-content;
+  margin: 0 auto 50px;
+  font-size: 25px;
+  color: var(--main-color);
+  position: relative;
+}
+
+.faq .heading::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -15px;
+  width: 15px;
+  height: 15px;
+  border-top: 3px solid var(--main-color);
+  border-left: 3px solid var(--main-color);
+}
+
+.faq .heading::after {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  right: -15px;
+  width: 15px;
+  height: 15px;
+  border-right: 3px solid var(--main-color);
+  border-bottom: 3px solid var(--main-color);
+}
+
+.faq .row-faq {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.row-faq .image {
+  width: 47%;
+  height: 350px;
+}
+
+.row-faq .image img {
+  width: 100%;
+  height: 100%;
+}
+
+.row-faq .accord-container {
+  width: 47%;
+}
+
+.accord-container .accordion {
+  margin-bottom: 10px;
+}
+
+.accord-container .accordion .accordion-header {
+  display: flex;
+  height: 50px;
+  background: var(--main-color);
+  color: #fff;
+  box-shadow: 0.1rem 0.1rem 0.3rem rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.accord-container .accordion .accordion-header span {
+  width: 50px;
+  text-align: center;
+  margin-right: 10px;
+  background: #fff;
+  color: #333;
+  font-size: 35px;
+  clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+}
+
+.accord-container .accordion .accordion-header h3 {
+  padding: 10px;
+}
+
+.accord-container .accordion .accordion-body {
+  margin-top: 10px;
+  padding: 10px;
+  background: #fff;
+  box-shadow: 0.1rem 0.2rem 0.5rem rgb(0 0 0 / 25%);
+  display: none; /*For jQuery*/
+}
+
+@media (max-width: 768px) {
+  .row-faq .image {
+    width: 100%;
+    height: auto;
+  }
+  .row-faq .accord-container {
+    width: 100%;
+    margin-top: 40px;
+  }
+}
+
+/********* Footer Section *********/
+footer {
+  background: var(--main-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px 30px;
+}
+
+footer h2 {
+  color: #fff;
+  font-size: 18px;
+}
+
+footer .social a {
+  color: #fff;
+  font-size: 25px;
+  transition: 0.5s;
+}
+
+footer .social a:not(:last-child) {
+  margin-right: 25px;
+}
+
+footer .social a:hover {
+  color: linear-gradient(purple, var(--main-color));
+  transform: scale(1.1);
+}
+
+@media (max-width: 617px) {
+  footer .social {
+    margin-top: 20px;
+  }
+}
